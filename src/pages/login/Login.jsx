@@ -27,7 +27,10 @@ const Login = () => {
     e.preventDefault();
     dispatch({ type: "LOGIN_START" });
     try {
-      const res = await axios.post("/auth/login", credentials);
+      const res = await axios.post(
+        "https://sheikh-booking-backend.onrender.com/api/auth/login",
+        credentials
+      );
       if (res.data.isAdmin) {
         dispatch({ type: "LOGIN_SUCCESS", payload: res.data.details });
         navigate("/");
